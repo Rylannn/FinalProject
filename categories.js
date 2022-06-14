@@ -3,9 +3,8 @@ function outputHTML() {
         
     for (let i = 0; i < cats.length; i++) {
         appendHTML("cat-list", `
-            <li>
+            <li> 
                 <a href="todos.html?catIndex=${i}">${cats[i].name}</a>
-                (<a href="#" onclick='deleteCat(${i})'>Delete</a>)
             </li>`)
     }
 }
@@ -22,17 +21,6 @@ function addCat() {
         name: name,
         todos: []
     })
-
-    // Save the data to the local browser storage and reload the page
-    saveLocal(cats)
-    location.reload()
-}
-
-// Deletes a category
-function deleteCat(index) {
-
-    // Delete the item with the given index from the cats array
-    cats.splice(index, 1)
 
     // Save the data to the local browser storage and reload the page
     saveLocal(cats)

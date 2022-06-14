@@ -1,3 +1,4 @@
+
 // Check that the category index in the URL is valid
 function getCatIndex() {
 
@@ -18,7 +19,7 @@ function getCatIndex() {
 function outputHTML() {
 
     // Update the heading with the name of the category
-    setHTML("heading", `Todos: ${cats[catIndex].name}`)
+    setHTML("heading", `Genre: ${cats[catIndex].name}`)
 
     // Append data to the table
     let todos = cats[catIndex].todos // gives us easier access to the todo list for this category
@@ -26,17 +27,34 @@ function outputHTML() {
 
         // If the todo has been marked as "done" we make the checkbox status "checked", otherwise
         // we make it an empty string
-        let checkboxStatus = ""
+        // let checkboxStatus = ""
         if (todos[i].isDone) {
             checkboxStatus = "checked"
         }
 
+        let service = ""
+
+        if (todos[i].songlink.indexOf("youtube") > -1)
+            service = "on YouTube"
+
+        if (todos[i].songlink.indexOf("spotify") > -1)
+            service = "on Spotify"
+
+        if (todos[i].songlink.indexOf("music","apple") > -1)
+            service = "on Apple Music"
+
+        if (todos[i].songlink.indexOf("music","youtube") > -1)
+            service = "on Youtube Music"
+
+        if (todos[i].songlink.indexOf("soundcloud") > -1)
+        service = "on Soundcloud"
+
         // Append the data for the current todo item to the table
-        appendHTML("todo-table", `
+        appendHTML("song-table", `
             <tr>
-                <td>${todos[i].desc}</td>
-                <td>${todos[i].due}</td>
-                <td><input type="checkbox" ${checkboxStatus} onclick="toggleTodo(${i})"></td>
+                <td>${todos[i].songname}</td>
+                <td>${todos[i].artist}</td>
+                <td><a href="${todos[i].songlink}" target="_blank">Play ${service}</a></td>
                 <td><a href="#" onclick="deleteTodo(${i})">Delete</a></td>
             </tr>`
         )
@@ -47,14 +65,17 @@ function outputHTML() {
 function addTodo() {
 
     // Get the values of the description and due date from the text boxes
-    let desc = document.getElementById("new-todo-desc").value
-    let due = document.getElementById("new-todo-due").value
+    let songname = document.getElementById("new-songname").value
+    let artist = document.getElementById("new-artist").value
+    let songlink = document.getElementById("new-songlink").value
+
 
     // Insert a new todo with the provided information. Notice that we need to use "catIndex" to ensure
     // we are inserting into the proper todo list
     cats[catIndex].todos.push({
-        desc: desc,
-        due: due,
+        songname: songname,
+        artist: artist,
+        songlink: songlink,
         isDone: false
     })
 
@@ -93,3 +114,13 @@ let catIndex = getCatIndex()
 // Only call outputHTML if getCatIndex didn't return the error code (-1)
 if (catIndex > -1)
     outputHTML()
+
+    
+// song.sort(function(song1, song2){
+//     if (song1.songname < song2.songname) {
+//         return -1
+//     }
+//     return 1
+// })
+
+// console.log()
