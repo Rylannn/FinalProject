@@ -1,25 +1,85 @@
 // This is the default data to use if none is found in the browser's local storage
 let defaultCats = [
-    // {
-    //     name: "Rock",
-    //     todos: [
-    //         {
-    //             // desc: "Cut Grass",
-    //             // due: "May 24",
-    //             // // isDone: false
-    //         }
-    //     ]
-    // },
-    // {
-    //     name: "EDM",
-    //     todos: [
-    //         {
-    //             // desc: "Mark Grade 12 Assignments",
-    //             // due: "ASAP",
-    //             // // isDone: false
-    //         }
-    //     ]
-    // }
+    {
+        name: "Alternative",
+        todos: []
+    },
+    {
+        name: "Blues",
+        todos: []
+    },
+    {
+        name: "Classical",
+        todos: []
+    },
+    {
+        name: "Country",
+        todos: []
+    },
+    {
+        name: "Club",
+        todos: []
+    },
+    {
+        name: "Dubstep",
+        todos: []
+    },
+    {
+        name: "EDM",
+        todos: []
+    },  
+    {
+        name: "Electronic",
+        todos: []
+    },
+    {
+        name: "Industrial",
+        todos: []
+    },  
+    {
+        name: "Techno",
+        todos: []
+    },
+    {
+        name: "Trance",
+        todos: []
+    },
+    {
+        name: "Trap",
+        todos: []
+    },
+    {
+        name: "Hardstyle",
+        todos: []
+    },
+    {
+        name: "Hip-Hop",
+        todos: []
+    },
+    {
+        name: "Holiday",
+        todos: []
+    },
+    {
+        name: "Industrial",
+        todos: []
+    },  
+    {
+        name: "Indie-Pop",
+        todos: []
+    },
+    {
+        name: "Jazz",
+        todos: []
+    },
+    {
+        name: "Lo-fi",
+        todos: []
+    },
+    {
+        name: "Vaporwave",
+        todos: []
+    },
 ]
 
 // Set "cats" (short for "categories") to the data found in the browser's local storage.

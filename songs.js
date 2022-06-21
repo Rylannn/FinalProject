@@ -25,13 +25,9 @@ function outputHTML() {
     let todos = cats[catIndex].todos // gives us easier access to the todo list for this category
     for (let i = 0; i < todos.length; i++) {
 
-        // If the todo has been marked as "done" we make the checkbox status "checked", otherwise
-        // we make it an empty string
-        // let checkboxStatus = ""
-        if (todos[i].isDone) {
-            checkboxStatus = "checked"
-        }
-
+        // Service indexes all the song links in the list, then gives itself a name depensing on the 
+        // type of music streaming service it is, if the service is not found, it will yield a general 
+        // answer: "play song here".
         let service = ""
 
         if (todos[i].songlink.indexOf("youtube") > -1)
@@ -43,11 +39,14 @@ function outputHTML() {
         if (todos[i].songlink.indexOf("music","apple") > -1)
             service = "on Apple Music"
 
-        if (todos[i].songlink.indexOf("music","youtube") > -1)
+        if (todos[i].songlink.indexOf("music","youtube","youtu.be") > -1)
             service = "on Youtube Music"
 
         if (todos[i].songlink.indexOf("soundcloud") > -1)
-        service = "on Soundcloud"
+            service = "on Soundcloud"
+
+        if (service == "")
+            service = "Song here"
 
         // Append the data for the current todo item to the table
         appendHTML("song-table", `
@@ -114,13 +113,3 @@ let catIndex = getCatIndex()
 // Only call outputHTML if getCatIndex didn't return the error code (-1)
 if (catIndex > -1)
     outputHTML()
-
-    
-// song.sort(function(song1, song2){
-//     if (song1.songname < song2.songname) {
-//         return -1
-//     }
-//     return 1
-// })
-
-// console.log()

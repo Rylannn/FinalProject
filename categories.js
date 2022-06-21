@@ -27,5 +27,23 @@ function addCat() {
     location.reload()
 }
 
+// Deletes a category
+function deleteCat(index) {
+
+    // Delete the item with the given index from the cats array
+    cats.splice(index, 1)
+
+    // Save the data to the local browser storage and reload the page
+    saveLocal(cats)
+    location.reload()
+}
+// cats.sort(function(genre1, genre2){
+//     if (genre1.name < genre2.name){
+//         return -1
+//     }
+//     return 1
+// })
+
+
 // Since we are not inside a function here, outputHTML() will be called as soon as the page loads
 outputHTML()
